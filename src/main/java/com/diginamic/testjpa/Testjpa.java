@@ -25,9 +25,20 @@ public class Testjpa {
         livre.setHasIllustration(true);
         livre.setNbOfPages(300);
         
+        Book livre2 = new Book();
+        livre2.setTitle("Cyrano de Bergerac");
+        
         em.getTransaction().begin(); //Démarre une transation
         em.persist(livre);
+        em.persist(livre2);
         em.getTransaction().commit(); //Termine une transaction si résultat OK
+        
+        Book rechercheLivre = em.find(Book.class, 1);
+        if(rechercheLivre != null){
+            System.out.println("Livre trouvé : " + rechercheLivre.toString());
+        } else {
+            System.out.println("Aucun résultat trouvé pour l'ID n°1");
+        }
         
         em.close();
     }

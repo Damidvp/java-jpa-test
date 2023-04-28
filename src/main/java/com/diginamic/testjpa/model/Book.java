@@ -4,10 +4,12 @@
  */
 package com.diginamic.testjpa.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.time.Instant;
 
 /**
  *
@@ -18,12 +20,14 @@ public class Book {
     
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false, length = 200)
     private String title;
     private Float price;
     private String description;
     private String isbn;
     private Integer nbOfPages;
     private Boolean hasIllustration;
+    private Instant instant = Instant.now();
 
     public Long getId() {
         return id;
@@ -79,6 +83,19 @@ public class Book {
 
     public void setHasIllustration(Boolean hasIllustration) {
         this.hasIllustration = hasIllustration;
+    }
+
+    public Instant getInstant() {
+        return instant;
+    }
+
+    public void setInstant(Instant instant) {
+        this.instant = instant;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" + "id=" + id + ", title=" + title + ", price=" + price + ", description=" + description + ", isbn=" + isbn + ", nbOfPages=" + nbOfPages + ", hasIllustration=" + hasIllustration + ", instant=" + instant + '}';
     }
     
 }
