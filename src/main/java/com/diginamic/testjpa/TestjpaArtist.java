@@ -91,7 +91,6 @@ public class TestjpaArtist {
         em.persist(artist4);
         em.getTransaction().commit();
         
-        em.refresh(em);
     }
     
 }
