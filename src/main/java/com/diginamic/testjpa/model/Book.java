@@ -6,9 +6,12 @@ package com.diginamic.testjpa.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 import java.time.Instant;
 
 /**
@@ -27,8 +30,12 @@ public class Book {
     private String isbn;
     private Integer nbOfPages;
     private Boolean hasIllustration;
+    @Transient
     private Instant instant = Instant.now();
-
+    //Sans EnumType : par défaut, retourne l'index de l'élément dans l'énumération (ordinal)
+    @Enumerated(EnumType.STRING)
+    private BookCategory category;
+    
     public Long getId() {
         return id;
     }
@@ -91,6 +98,14 @@ public class Book {
 
     public void setInstant(Instant instant) {
         this.instant = instant;
+    }
+
+    public BookCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(BookCategory category) {
+        this.category = category;
     }
 
     @Override

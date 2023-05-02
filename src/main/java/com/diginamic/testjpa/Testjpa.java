@@ -5,6 +5,7 @@
 package com.diginamic.testjpa;
 
 import com.diginamic.testjpa.model.Book;
+import com.diginamic.testjpa.model.BookCategory;
 import com.diginamic.testjpa.utils.JPAUtils;
 import jakarta.persistence.EntityManager;
 
@@ -24,9 +25,11 @@ public class Testjpa {
         livre.setPrice(30F);
         livre.setHasIllustration(true);
         livre.setNbOfPages(300);
+        livre.setCategory(BookCategory.FANTASTIQUE);
         
         Book livre2 = new Book();
         livre2.setTitle("Cyrano de Bergerac");
+        livre2.setCategory(BookCategory.THEATRE);
         
         em.getTransaction().begin(); //Démarre une transation
         em.persist(livre);
