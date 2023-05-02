@@ -35,7 +35,9 @@ public class TestjpaAddress {
         unAutreClient.setEmail("nymphe.deseaux@gmail.com");
         unAutreClient.setAddress(uneAdresse);
         
+        //Ordre des persist n'a pas d'importance
         em.getTransaction().begin(); //Démarre une transation
+        em.persist(uneAdresse);
         em.persist(unClient);
         em.persist(unAutreClient);
         em.getTransaction().commit(); //Termine une transaction si résultat OK
