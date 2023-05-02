@@ -22,6 +22,7 @@ public class Testjpa {
         TestjpaBook.testBook(em);
         TestjpaCD.testCD(em);
         TestjpaAddress.testAddress(em);
+        TestjpaOrder.testOrder(em);
         
         em.close();
     }
