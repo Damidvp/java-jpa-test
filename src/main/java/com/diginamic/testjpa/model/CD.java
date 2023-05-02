@@ -9,8 +9,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.MapKeyColumn;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,6 +29,8 @@ public class CD {
     private String description;
     @ElementCollection @MapKeyColumn(name = "tracks_Position")
     private Map<Integer, String> tracks = new HashMap<>();
+    @ManyToMany(mappedBy = "cds")
+    private List<Artist> artists = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -66,6 +71,13 @@ public class CD {
     public void setTracks(Map<Integer, String> tracks) {
         this.tracks = tracks;
     }
-    
+
+    public List<Artist> getArtists() {
+        return artists;
+    }
+
+    public void setArtists(List<Artist> artists) {
+        this.artists = artists;
+    }
     
 }

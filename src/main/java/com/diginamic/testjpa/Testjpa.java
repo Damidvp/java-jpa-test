@@ -23,6 +23,7 @@ public class Testjpa {
         TestjpaCD.testCD(em);
         TestjpaAddress.testAddress(em);
         TestjpaOrder.testOrder(em);
+        TestjpaArtist.testArtist(em);
         
         em.close();
     }
