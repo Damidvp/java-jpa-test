@@ -17,8 +17,7 @@ public class TestjpaCD {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        EntityManager em = JPAUtils.getInstance().getEntityManager();
+    public static void testCD(EntityManager em) {
         
         CD cdLindsey = new CD();
         cdLindsey.setTitle("Artémis");
