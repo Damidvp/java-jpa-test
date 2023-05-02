@@ -26,6 +26,11 @@ public class Testjpa {
         livre.setHasIllustration(true);
         livre.setNbOfPages(300);
         livre.setCategory(BookCategory.FANTASTIQUE);
+        livre.getTags().add("Darkling");
+        livre.getTags().add("Monde imaginaire");
+        livre.getTags().add("Dystopie");
+        livre.getTags().add("Fantaisie");
+        livre.getTags().add("Magie");
         
         Book livre2 = new Book();
         livre2.setTitle("Cyrano de Bergerac");

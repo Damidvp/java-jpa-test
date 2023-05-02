@@ -5,6 +5,7 @@
 package com.diginamic.testjpa.model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -13,6 +14,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Transient;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -35,6 +38,8 @@ public class Book {
     //Sans EnumType : par défaut, retourne l'index de l'élément dans l'énumération (ordinal)
     @Enumerated(EnumType.STRING)
     private BookCategory category;
+    @ElementCollection
+    private List<String> tags = new ArrayList<>();
     
     public Long getId() {
         return id;
@@ -106,6 +111,14 @@ public class Book {
 
     public void setCategory(BookCategory category) {
         this.category = category;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 
     @Override
