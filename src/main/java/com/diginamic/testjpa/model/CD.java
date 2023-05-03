@@ -21,47 +21,47 @@ import java.util.Map;
  * @author dmouchagues
  */
 @Entity
-public class CD {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String title;
-    private Float price;
-    private String description;
+public class CD extends Item{
+    
+    private String musicCompany;
+    private Integer numberOfCDs;
+    private Float totalDuration;
+    private String genre;
     @ElementCollection @MapKeyColumn(name = "tracks_Position")
     private Map<Integer, String> tracks = new HashMap<>();
     @ManyToMany(mappedBy = "cds")
     private List<Artist> artists = new ArrayList<>();
 
-    public Long getId() {
-        return id;
+    public String getMusicCompany() {
+        return musicCompany;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setMusicCompany(String musicCompany) {
+        this.musicCompany = musicCompany;
     }
 
-    public String getTitle() {
-        return title;
+    public Integer getNumberOfCDs() {
+        return numberOfCDs;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setNumberOfCDs(Integer numberOfCDs) {
+        this.numberOfCDs = numberOfCDs;
     }
 
-    public Float getPrice() {
-        return price;
+    public Float getTotalDuration() {
+        return totalDuration;
     }
 
-    public void setPrice(Float price) {
-        this.price = price;
+    public void setTotalDuration(Float totalDuration) {
+        this.totalDuration = totalDuration;
     }
 
-    public String getDescription() {
-        return description;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public Map<Integer, String> getTracks() {
