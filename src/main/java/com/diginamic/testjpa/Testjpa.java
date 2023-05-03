@@ -24,6 +24,7 @@ public class Testjpa {
         TestjpaAddress.testAddress(em);
         TestjpaOrder.testOrder(em);
         TestjpaArtist.testArtist(em);
+        TestjpaJPQL.testJPQL(em);
         
         em.close();
     }

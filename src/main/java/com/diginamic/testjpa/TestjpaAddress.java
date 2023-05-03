@@ -16,6 +16,7 @@ public class TestjpaAddress {
     
     public static void testAddress(EntityManager em){
         Address uneAdresse = new Address();
+        Address uneAutreAdresse = new Address();
         Customer unClient = new Customer();
         Customer unAutreClient = new Customer();
         
@@ -23,6 +24,12 @@ public class TestjpaAddress {
         uneAdresse.setCountry("France");
         uneAdresse.setState("Hérault");
         uneAdresse.setStreet1("1 rue Boussairolles");
+        
+        uneAutreAdresse.setCity("Montpellier");
+        uneAutreAdresse.setCountry("France");
+        uneAutreAdresse.setState("Hérault");
+        uneAutreAdresse.setStreet1("1 rue Boussairolles");
+        uneAutreAdresse.setZipcode("34000");
         
         unClient.setFirstName("Arno");
         unClient.setLastName("Camoa");
@@ -33,11 +40,12 @@ public class TestjpaAddress {
         unAutreClient.setFirstName("Kore");
         unAutreClient.setLastName("Dahlia");
         unAutreClient.setEmail("nymphe.deseaux@gmail.com");
-        unAutreClient.setAddress(uneAdresse);
+        unAutreClient.setAddress(uneAutreAdresse);
         
         //Ordre des persist n'a pas d'importance
         em.getTransaction().begin(); //Démarre une transation
         em.persist(uneAdresse);
+        em.persist(uneAutreAdresse);
         em.persist(unClient);
         em.persist(unAutreClient);
         em.getTransaction().commit(); //Termine une transaction si résultat OK
